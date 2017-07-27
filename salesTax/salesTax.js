@@ -28,16 +28,16 @@ function calculateSalesTax(salesData, taxRates) {
     
     for (var i = 0; i < companySalesData.length; i++) {
 
-        var name = companySalesData[i]["name"];
-        var province = companySalesData[i]["province"];
-        var sales = companySalesData[i]["sales"].reduce((a, b) => a + b, 0);
-        var taxAmonut = sales * salesTaxRates[province];
+        var name = salesData[i]["name"];
+        var province = salesData[i]["province"];
+        var sales = salesData[i]["sales"].reduce((a, b) => a + b, 0);
+        var taxAmonut = sales * taxRates[province];
 
-        if (!output[name]) {
-            output[name] = {totalSales: sales, totalTaxes: taxAmonut};      
-        } else {            
+        if (output[name]) {
             output[name].totalSales += sales;
             output[name].totalTaxes += taxAmonut;
+        } else {            
+            output[name] = {totalSales: sales, totalTaxes: taxAmonut};      
         } 
     }
     console.log(output);
