@@ -33,7 +33,6 @@ var library = {
             console.log(output);
         }
     },
-
     printTracks: function () {
 
         for (var key in this.tracks) {
@@ -48,7 +47,6 @@ var library = {
             console.log(output);
             }
     },
-
     printPlaylist: function (playlistId) {
 
         if (library.this[playlistId]) {
@@ -78,7 +76,6 @@ var library = {
             console.log("ID not found!");
             }
     },
-
     addTrackToPlaylist: function (trackId, playlistId) {
 
         if (this.tracks[trackId] && this.playlists[playlistId]) {
@@ -97,7 +94,6 @@ var library = {
     uid: function() {
         return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     },
-
     addTrack: function (name, artist, album) {
 
         var newTrack = {};
@@ -112,7 +108,6 @@ var library = {
 
         return this.tracks;
     },
-
     addPlaylist: function (name) {
 
         var newPlaylist = {};
